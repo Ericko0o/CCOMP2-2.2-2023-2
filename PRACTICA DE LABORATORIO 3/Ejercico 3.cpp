@@ -7,7 +7,7 @@ int main() {
 
     if (n <= 0) {
         std::cout << "El valor de n debe ser mayor que 0." << std::endl;
-        return 1; // Salir del programa con un código de error
+        return 1;
     }
 
     std::cout << "Los primeros " << n << " números de la secuencia de Fibonacci son: ";
