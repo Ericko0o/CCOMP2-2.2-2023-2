@@ -1,33 +1,35 @@
+//¿Cuál es el mayor factor primo del número? 600851475143
+
 #include <iostream>
 #include <cmath>
 
-long long largestPrimeFactor(long long n) {
-    long long largest = -1;
+long long mayorFactorPrimo(long long n) {
+    long long mayor = -1;
 
     while (n % 2 == 0) {
-        largest = 2;
+        mayor = 2;
         n /= 2;
     }
 
     for (long long i = 3; i <= sqrt(n); i += 2) {
         while (n % i == 0) {
-            largest = i;
+            mayor = i;
             n /= i;
         }
     }
 
     if (n > 2) {
-        largest = n;
+        mayor = n;
     }
 
-    return largest;
+    return mayor;
 }
 
 int main() {
-    long long number = 600851475143;
-    long long result = largestPrimeFactor(number);
+    long long numero = 600851475143;
+    long long resultado = mayorFactorPrimo(numero);
 
-    std::cout << "El factor primo más grande de " << number << " es: " << result << std::endl;
+    std::cout << "El factor primo más grande de " << numero << " es: " << resultado << std::endl;
 
     return 0;
 }

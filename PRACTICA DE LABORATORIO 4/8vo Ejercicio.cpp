@@ -1,8 +1,10 @@
+//Encuentra los trece dígitos adyacentes en 1000 número de dígitos que tiene el mayor producto. ¿Cuál es el valor de este producto?
+
 #include <iostream>
 #include <string>
 
 int main() {
-    std::string number =
+    std::string numero =
         "73167176531330624919225119674426574742355349194934"
         "96983520312774506326239578318016984801869478851843"
         "85861560789112949495459501737958331952853208805511"
@@ -24,20 +26,20 @@ int main() {
         "05886116467109405077541002256983155200055935729725"
         "71636269561882670428252483600823257530420752963450";
 
-    int adjacentDigits = 13;
-    long long maxProduct = 0;
+    int digitosAdyacentes = 13;
+    long long maximoProducto = 0;
 
-    for (int i = 0; i <= number.length() - adjacentDigits; i++) {
-        long long product = 1;
-        for (int j = 0; j < adjacentDigits; j++) {
-            product *= number[i + j] - '0';
+    for (int i = 0; i <= numero.length() - digitosAdyacentes; i++) {
+        long long producto = 1;
+        for (int j = 0; j < digitosAdyacentes; j++) {
+            producto *= numero[i + j] - '0';
         }
-        if (product > maxProduct) {
-            maxProduct = product;
+        if (producto > maximoProducto) {
+            maximoProducto = producto;
         }
     }
 
-    std::cout << "El producto más grande de " << adjacentDigits << " dígitos adyacentes es: " << maxProduct << std::endl;
+    std::cout << "El producto más grande de " << digitosAdyacentes << " dígitos adyacentes es: " << maximoProducto << std::endl;
 
     return 0;
 }

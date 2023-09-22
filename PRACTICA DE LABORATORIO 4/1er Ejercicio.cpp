@@ -1,3 +1,5 @@
+//Encuentra la suma de todos los múltiplos de 3 o 5 bajo 1000
+
 #include <iostream>
 
 int main() {

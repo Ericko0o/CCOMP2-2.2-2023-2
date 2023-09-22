@@ -1,20 +1,22 @@
+//Encuentra la diferencia entre la suma de los cuadrados de los primeros cien números naturales y el cuadrado de la suma.
+
 #include <iostream>
 
 int main() {
     int n = 100;
-    int sumOfSquares = 0;
-    int squareOfSum = 0;
+    int sumaDeCuadrados = 0;
+    int cuadradoDeLaSuma = 0;
 
     for (int i = 1; i <= n; i++) {
-        sumOfSquares += i * i;
+        sumaDeCuadrados += i * i;
     }
 
-    int sum = n * (n + 1) / 2;
-    squareOfSum = sum * sum;
+    int suma = n * (n + 1) / 2;
+    cuadradoDeLaSuma = suma * suma;
 
-    int difference = squareOfSum - sumOfSquares;
+    int diferencia = cuadradoDeLaSuma - sumaDeCuadrados;
 
-    std::cout << "La diferencia entre la suma de los cuadrados y el cuadrado de la suma de los primeros " << n << " naturales es: " << difference << std::endl;
+    std::cout << "La diferencia entre la suma de los cuadrados y el cuadrado de la suma de los primeros " << n << " números naturales es: " << diferencia << std::endl;
 
     return 0;
 }

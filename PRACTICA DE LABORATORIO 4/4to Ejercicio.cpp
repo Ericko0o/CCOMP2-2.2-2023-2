@@ -1,50 +1,43 @@
-#include <iostream>
-#include <vector>
+//Encuentra el palíndromo más grande hecho del producto de dos numerosde 3 dígitos.
 
-bool isPalindrome(int num) {
-    std::vector<int> digits;
-    int originalNum = num;
+#include <iostream>
+
+bool esPalindromo(int num) {
+    int numReverso = 0;
+    int numOriginal = num;
 
     while (num > 0) {
-        digits.push_back(num % 10);
+        int digito = num % 10;
+        numReverso = numReverso * 10 + digito;
         num /= 10;
     }
 
-    int left = 0;
-    int right = digits.size() - 1;
-    while (left < right) {
-        if (digits[left] != digits[right]) {
-            return false;
-        }
-        left++;
-        right--;
-    }
-
-    return true;
+    return numOriginal == numReverso;
 }
 
-int findLargestPalindrome() {
-    int largestPalindrome = 0;
+int encontrarPalindromoMasGrande() {
+    int palindromoMasGrande = 0;
 
     for (int i = 999; i >= 100; i--) {
         for (int j = i; j >= 100; j--) {
-            int product = i * j;
-            if (product <= largestPalindrome) {
+            int producto = i * j;
+            if (producto <= palindromoMasGrande) {
                 break;
             }
-            if (isPalindrome(product)) {
-                largestPalindrome = product;
+            if (esPalindromo(producto)) {
+                palindromoMasGrande = producto;
             }
         }
     }
 
-    return largestPalindrome;
+    return palindromoMasGrande;
 }
 
 int main() {
-    int result = findLargestPalindrome();
+    int resultado = encontrarPalindromoMasGrande();
 
-    std::cout << "El palíndromo más grande obtenido al multiplicar dos números de tres dígitos es: " << result << std::endl;
+    std::cout << "El palíndromo más grande obtenido al multiplicar dos números de tres dígitos es: " << resultado << std::endl;
 
     return 0;
 }
+

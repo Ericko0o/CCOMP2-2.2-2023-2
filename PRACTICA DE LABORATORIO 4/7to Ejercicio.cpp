@@ -1,35 +1,37 @@
+//Cuál es el 10001 primer número primo?
+
 #include <iostream>
 
-bool isPrime(int number) {
-    if (number <= 1) {
+bool esPrimo(int numero) {
+    if (numero <= 1) {
         return false;
     }
-    if (number <= 3) {
+    if (numero <= 3) {
         return true;
     }
-    if (number % 2 == 0 || number % 3 == 0) {
+    if (numero % 2 == 0 || numero % 3 == 0) {
         return false;
     }
-    for (int i = 5; i * i <= number; i += 6) {
-        if (number % i == 0 || number % (i + 2) == 0) {
+    for (int i = 5; i * i <= numero; i += 6) {
+        if (numero % i == 0 || numero % (i + 2) == 0) {
             return false;
         }
     }
     return true;
 }
 
-int findNthPrime(int n) {
-    int count = 0;
-    int candidate = 2;
+int encontrarNesimoPrimo(int n) {
+    int contador = 0;
+    int candidato = 2;
 
-    while (count < n) {
-        if (isPrime(candidate)) {
-            count++;
-            if (count == n) {
-                return candidate;
+    while (contador < n) {
+        if (esPrimo(candidato)) {
+            contador++;
+            if (contador == n) {
+                return candidato;
             }
         }
-        candidate++;
+        candidato++;
     }
 
     return -1;
@@ -37,9 +39,9 @@ int findNthPrime(int n) {
 
 int main() {
     int n = 10001;
-    int result = findNthPrime(n);
+    int resultado = encontrarNesimoPrimo(n);
 
-    std::cout << "El " << n << " número primo es: " << result << std::endl;
+    std::cout << "El " << n << "º número primo es: " << resultado << std::endl;
 
     return 0;
 }
